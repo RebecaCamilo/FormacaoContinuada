@@ -1,0 +1,13 @@
+GIT (comandos rodados no terminal git bash)
+
+-caminho para subir repositorio no github:
+	criar repositorio no site gitbub.com
+	git init
+	git add .
+	git commit -m "exemplo de texto"
+	git remote add origin https://gitbub.com/CAMINHO DO SEU REPOSITORIO NO GIT
+	git push -u origin master
+
+-outros comandos git:
+	git status
+	touch .gitignore (cria o arquivo .gitignore)
