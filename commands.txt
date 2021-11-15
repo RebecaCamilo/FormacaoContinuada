@@ -5,9 +5,15 @@ GIT (comandos rodados no terminal git bash)
 	git init
 	git add .
 	git commit -m "exemplo de texto"
-	git remote add origin https://gitbub.com/CAMINHO DO SEU REPOSITORIO NO GIT
+	git remote add origin https://github.com/RebecaCamilo/FormacaoContinuada.git
 	git push -u origin master
 
 -outros comandos git:
 	git status
 	touch .gitignore (cria o arquivo .gitignore)
+	git clone https://github.com/RebecaCamilo/FormacaoContinuada.git
+
+-para atualizar repositorio:
+	git add .
+	git commit -m "novo exemplo de texto"
+	git push -u origin master
