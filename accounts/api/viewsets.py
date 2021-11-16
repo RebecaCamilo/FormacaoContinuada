@@ -6,3 +6,8 @@ from .serializers import UserSerializer
 class RegisterViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+
+
+
+
+

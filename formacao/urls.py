@@ -25,4 +25,6 @@ route.register(r'register', accountsviewsets.RegisterViewSet, basename="register
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(route.urls)),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')), #acesso a tela de login entre outras do django rest
 ]
+

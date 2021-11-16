@@ -138,4 +138,22 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'accounts.User'
 
 
+#para que eu possa adicionar mais campos a classe User do django
+#AUTH_PROFILE_MEDULE = 'cadastros.UserProfile'
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+    ]
+}
+
+#Permissions:
+#AllowAny
+#IsAuthenticated
+#IsAdminUser
+#IsAuthenticatedOrReadOnly
+#senha: senha1teste
+
+
+
 
