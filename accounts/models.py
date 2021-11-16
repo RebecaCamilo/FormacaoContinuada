@@ -21,14 +21,21 @@ class CustomAccountManager(BaseUserManager):
         return self.create_user(email, first_name, matricula, password, **other_fields)
 
     def create_user(self, email, first_name, matricula, password, **other_fields):
-
         if not email:
-            raise ValueError(('You must provide an email address'))
+            raise ValueError(('You must have an email address'))
+        if not first_name:
+            raise ValueError(('You must have a first name'))
+        if not matricula:
+            raise ValueError(('You must have an matricula'))
 
-        email = self.normalize_email(email)
-        user = self.model(email=email, first_name=first_name, matricula=matricula, **other_fields)
+        #email = self.normalize_email(email)
+        #user = self.model(email=email, first_name=first_name, matricula=matricula, **other_fields)
+        user = self.model(
+            email=self.normalize_email(email), 
+            first_name=first_name, 
+            matricula=matricula, **other_fields)
         user.set_password(password)
-        user.save()
+        user.save(using=self._db)
         return user
 
 
@@ -42,7 +49,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     telefone = models.CharField(max_length=14) #(00)00000-0000
     start_date = models.DateTimeField(default=timezone.now)
     is_staff = models.BooleanField(default=False)
-    is_active = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
 
     objects = CustomAccountManager()
 
