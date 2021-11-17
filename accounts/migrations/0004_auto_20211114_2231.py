@@ -23,7 +23,7 @@ class Migration(migrations.Migration):
         ),
         migrations.AlterField(
             model_name='user',
-            name='matricula',
+            name='cpf',
             field=models.CharField(max_length=30, unique=True),
         ),
         migrations.AlterField(

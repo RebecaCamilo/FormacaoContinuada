@@ -17,3 +17,21 @@ GIT (comandos rodados no terminal git bash)
 	git add .
 	git commit -m "novo exemplo de texto"
 	git push -u origin master
+
+
+
+DJANGO 
+
+Criar o ambiente virtual
+	py -m venv venv
+Ativar a venv
+	venv\Scripts\activate
+Instalar requeriments
+	pip install -r requirements.txt
+Rodar o servidor
+	py manage.py runserver
+
+
+
+Criar arquivo requirements.txt (com a venv ativada)
+	pip freeze > requirements.txt

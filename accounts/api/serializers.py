@@ -6,13 +6,13 @@ from ..models import User
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('email', 'first_name', 'last_name', 'matricula', 'curso', 'telefone', 'password')
+        fields = ('email', 'first_name', 'last_name', 'cpf', 'curso', 'password')
         #extra_kwargs = {'password': {'write_only': True}} #faz com que não apareça o valor enviado deste campo no template da API
     
-    def create(self,validated_data):
-        '''Para encriptar a senha enviada pela API'''
-        user = User(**validated_data)
-        user.set_password(validated_data['password'])
-        user.save()
-        return user
+    # def create(self,validated_data):
+    #     '''Para encriptar a senha enviada pela API'''
+    #     user = User(**validated_data)
+    #     user.set_password(validated_data['password'])
+    #     user.save()
+    #     return user
 
