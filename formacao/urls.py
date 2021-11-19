@@ -27,8 +27,8 @@ urlpatterns = [
     path('', include(route.urls)),
     path('', include('rest_framework.urls', namespace='rest_framework')), #acesso a tela de login entre outras do django rest framework
     #ENDPOINTS PARA GENERICS CLASSES
-    path("register-generics-lc/", accountsviewsets.RegisterListCreateGenerics.as_view(), name=""),
-    path("register-generics-l/", accountsviewsets.RegisterListGenerics.as_view(), name=""),
-    path("register-generics-c/", accountsviewsets.RegisterCreateGenerics.as_view(), name=""),
+    path("generics-get-post/", accountsviewsets.RegisterListCreateGenerics.as_view(), name=""),
+    path("get/", accountsviewsets.RegisterListGenerics.as_view(), name=""),
+    path("post/", accountsviewsets.RegisterCreateGenerics.as_view(), name=""),
 ]
 

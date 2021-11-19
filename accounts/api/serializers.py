@@ -6,7 +6,7 @@ from ..models import User
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('id', 'email', 'first_name', 'last_name', 'cpf', 'curso', 'password', 'password2')
+        fields = ('id', 'name', 'course', 'email', 'cpf', 'password', 'password2')
         #extra_kwargs = {'password': {'write_only': True}} #faz com que não apareça o valor enviado deste campo no template da API
     
 
@@ -20,7 +20,7 @@ class UserSerializer(serializers.ModelSerializer):
 
     
     def create(self,validated_data):
-        '''Função para encriptar a senha enviada pela API'''
+        '''Função para encriptar a senha enviada pela API e para confirmação de senha'''
         user = User(**validated_data)
         if(user.password == user.password2):
             user.set_password(validated_data['password'])

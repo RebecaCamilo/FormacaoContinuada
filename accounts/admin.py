@@ -7,10 +7,10 @@ from django.contrib.auth.admin import UserAdmin
 #cria a classe UserAdminConfig extendida da UserAdmin (modifica a forma de mostrar os objetos user no admin do django)
 class UserAdminConfig(UserAdmin):
     model = User
-    list_filter = ('email', 'cpf', 'first_name', 'password', 'is_active', 'is_staff')
-    search_fields = ('email', 'cpf', 'first_name', 'password',)
+    list_filter = ('email', 'cpf', 'name', 'password', 'is_active', 'is_staff')
+    search_fields = ('email', 'cpf', 'name', 'password',)
     ordering = ('-start_date',)
-    list_display = ('email', 'cpf', 'first_name', 'password',
+    list_display = ('email', 'cpf', 'name', 'password',
                     'is_active', 'is_staff')
 
     filter_horizontal = ()
