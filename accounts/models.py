@@ -45,10 +45,12 @@ class CustomAccountManager(BaseUserManager):
 class User(AbstractBaseUser, PermissionsMixin):
 
     email = models.EmailField(('email address'), unique=True)
+    #nome inteiro
     first_name = models.CharField(max_length=150) 
     last_name = models.CharField(max_length=150)
     cpf = models.CharField(max_length=11, unique=True, verbose_name="CPF") #000.000.000-00
     curso = models.CharField(max_length=255, verbose_name="Curso vinculado")
+    password2 = models.CharField(max_length=150, verbose_name="Confirme a senha")
     #telefone = models.CharField(max_length=14) #(00)00000-0000
     start_date = models.DateTimeField(default=timezone.now)
     is_staff = models.BooleanField(default=False)
@@ -66,8 +68,8 @@ class User(AbstractBaseUser, PermissionsMixin):
     def __str__(self):
         return self.first_name
 
-    
-    
+
+
 
 
 '''
