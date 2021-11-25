@@ -20,7 +20,8 @@ from accounts.api import viewsets as accountsviewsets
 
 
 route = routers.DefaultRouter()
-route.register(r'register', accountsviewsets.RegisterViewSet, basename="register",)
+route.register(r'register', accountsviewsets.RegisterViewSet, basename="register")
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),

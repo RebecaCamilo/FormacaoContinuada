@@ -19,7 +19,7 @@ class RegisterViewSet(viewsets.ModelViewSet):
 #List and create
 class RegisterListCreateGenerics(generics.ListCreateAPIView):
     queryset = User.objects.all()
-    serializer_class = UserSerializer
+    serializer_class = UserSerializer()
     #permission_classes = [IsAdminUser]
 
 #List
