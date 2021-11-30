@@ -31,3 +31,4 @@ class RegisterListGenerics(generics.ListAPIView):
 class RegisterCreateGenerics(generics.CreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+

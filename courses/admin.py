@@ -31,8 +31,8 @@ class LessonAdmin(admin.ModelAdmin):
 # admin.site.register(Material)
 @admin.register(Material)
 class MaterialAdmin(admin.ModelAdmin):
-    list_display = ('material_title', 'couse', 'file', 'get_upload_at')
-    search_fields = ('material_title', 'couse')
+    list_display = ('material_title', 'course', 'file', 'get_upload_at')
+    search_fields = ('material_title', 'course')
     list_filter = ('material_title',)
     date_hierarchy = 'upload_at'
 

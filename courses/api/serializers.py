@@ -16,6 +16,6 @@ class LessonSerializer(serializers.ModelSerializer):
 class MaterialSerializer(serializers.ModelSerializer):
     class Meta:
         model = Material
-        fields = ('material_title', 'file', 'couse')
+        fields = ('material_title', 'file', 'course')
 
 

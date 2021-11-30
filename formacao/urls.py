@@ -17,10 +17,16 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 from accounts.api import viewsets as accountsviewsets
+from courses.api import viewsets as coursesviewsets
 
 
 route = routers.DefaultRouter()
-route.register(r'register', accountsviewsets.RegisterViewSet, basename="register")
+route.register(r'lesson', coursesviewsets.LessonViewSet, basename="courses")
+
+
+
+# route.register(r'courses', coursesviewsets.CourseViewSet, basename="courses")
+# route.register(r'register', accountsviewsets.RegisterViewSet, basename="register")
 
 
 urlpatterns = [

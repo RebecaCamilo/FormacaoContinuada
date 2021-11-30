@@ -33,7 +33,7 @@ class Lesson(models.Model):
 class Material(models.Model):
     material_title = models.CharField(max_length=100)
     file = models.FileField() #upload_to='pdf/'
-    couse = models.ForeignKey(Lesson, on_delete=models.PROTECT)
+    course = models.ForeignKey(Lesson, on_delete=models.PROTECT)
     upload_at = models.DateTimeField(auto_now_add=True)
 
 
