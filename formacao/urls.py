@@ -21,13 +21,10 @@ from courses.api import viewsets as coursesviewsets
 
 
 route = routers.DefaultRouter()
-route.register(r'lesson', coursesviewsets.LessonViewSet, basename="courses")
-
-
-
-# route.register(r'courses', coursesviewsets.CourseViewSet, basename="courses")
-# route.register(r'register', accountsviewsets.RegisterViewSet, basename="register")
-
+route.register(r'register', accountsviewsets.RegisterViewSet, basename="register")
+route.register(r'courses', coursesviewsets.CourseViewSet, basename="courses")
+route.register(r'lesson', coursesviewsets.LessonViewSet, basename="lessons")
+route.register(r'materials', coursesviewsets.MaterialViewSet, basename="materials")
 
 urlpatterns = [
     path('admin/', admin.site.urls),
