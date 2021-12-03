@@ -22,7 +22,7 @@ class LessonViewSet(viewsets.ModelViewSet):
     serializer_class = LessonSerializer
 
 class MaterialViewSet(viewsets.ModelViewSet):
-    queryset = Lesson.objects.all()
+    queryset = Material.objects.all()
     serializer_class = MaterialSerializer
 
 
