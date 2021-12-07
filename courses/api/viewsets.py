@@ -10,12 +10,16 @@ class CourseViewSet(viewsets.ModelViewSet):
     queryset = Course.objects.all()
     serializer_class = CourseSerializer
 
-    def retrieve(self, request, *args, **kwargs):
-        params = kwargs
-        print(params['id'])
-        courses = CourseSpecs.objects.filter(id = params['id'])
-        serializer = CourseSerializer(courses, many=True)
-        return response.ResponseHeaders(serializer.data)
+    # def get_queryset(self):
+    #     courses = Course.objects.all()
+    #     return courses
+
+    # def retrieve(self, request, *args, **kwargs):
+    #     params = kwargs
+    #     print(params['pk'])
+    #     courses2 = Course.objects.filter(course_title = params['pk'])
+    #     serializer = CourseSerializer(courses2, many=True)
+    #     return response(serializer.data)
 
 class LessonViewSet(viewsets.ModelViewSet):
     queryset = Lesson.objects.all()

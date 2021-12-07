@@ -21,7 +21,7 @@ class Course(models.Model):
 
 class Lesson(models.Model):
     lesson_title = models.CharField(max_length=150)
-    course = models.ForeignKey(Course, on_delete=models.PROTECT)
+    course = models.ForeignKey(Course, on_delete=models.CASCADE)
     synopsis = models.CharField(max_length=300)
     description = models.TextField(max_length=1000)
     create_at = models.DateTimeField(auto_now_add=True)
@@ -33,7 +33,7 @@ class Lesson(models.Model):
 class Material(models.Model):
     material_title = models.CharField(max_length=100)
     file = models.FileField() #upload_to='pdf/'
-    course = models.ForeignKey(Lesson, on_delete=models.PROTECT)
+    course = models.ForeignKey(Lesson, on_delete=models.CASCADE)
     upload_at = models.DateTimeField(auto_now_add=True)
 
 
