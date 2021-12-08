@@ -15,6 +15,8 @@ class CourseViewSet(viewsets.ModelViewSet):
 class LessonViewSet(viewsets.ModelViewSet):
     queryset = Lesson.objects.all()
     serializer_class = LessonSerializer
+    filter_backends = [SearchFilter]
+    search_fields = ['lesson_title', 'synopsis']
 
 class MaterialViewSet(viewsets.ModelViewSet):
     queryset = Material.objects.all()
