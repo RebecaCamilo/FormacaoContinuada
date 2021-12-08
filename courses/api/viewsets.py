@@ -1,25 +1,16 @@
-from django.http import response
 from rest_framework import serializers, viewsets
 from ..models import Course, Lesson, Material
 from .serializers import CourseSerializer
 from .serializers import LessonSerializer
 from .serializers import MaterialSerializer
+from rest_framework.filters import SearchFilter
 
 
 class CourseViewSet(viewsets.ModelViewSet):
     queryset = Course.objects.all()
     serializer_class = CourseSerializer
-
-    # def get_queryset(self):
-    #     courses = Course.objects.all()
-    #     return courses
-
-    # def retrieve(self, request, *args, **kwargs):
-    #     params = kwargs
-    #     print(params['pk'])
-    #     courses2 = Course.objects.filter(course_title = params['pk'])
-    #     serializer = CourseSerializer(courses2, many=True)
-    #     return response(serializer.data)
+    filter_backends = [SearchFilter]
+    search_fields = ['course_title']    #Precisa usar "?search=" antes do nome buscado na url
 
 class LessonViewSet(viewsets.ModelViewSet):
     queryset = Lesson.objects.all()
