@@ -18,6 +18,7 @@ from django.urls import path, include
 from rest_framework import routers
 from accounts.api import viewsets as accountsviewsets
 from courses.api import viewsets as coursesviewsets
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 
 route = routers.DefaultRouter()
@@ -30,7 +31,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(route.urls)),
     path('', include('rest_framework.urls', namespace='rest_framework')), #acesso a tela de login entre outras do django rest framework
-    
+    ##### AUTHENTICATION JWT ##################
+    path('token/', TokenObtainPairView.as_view()),
+    path('token/refresh/', TokenRefreshView.as_view()),
     ##### ENDPOINTS PARA GENERICS CLASSES ############
     #path("generics-get-post/", accountsviewsets.RegisterListCreateGenerics.as_view(), name=""),
     #path("get/", accountsviewsets.RegisterListGenerics.as_view(), name=""),
