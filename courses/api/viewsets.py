@@ -1,4 +1,4 @@
-from rest_framework import serializers, viewsets
+from rest_framework import viewsets
 from ..models import Course, Lesson, Material
 from .serializers import CourseSerializer
 from .serializers import LessonSerializer
@@ -9,8 +9,8 @@ from rest_framework.filters import SearchFilter
 class CourseViewSet(viewsets.ModelViewSet):
     queryset = Course.objects.all()
     serializer_class = CourseSerializer
-    filter_backends = [SearchFilter]
-    search_fields = ['course_title']    #Precisa usar "?search=" antes do nome buscado na url
+    filter_backends = [SearchFilter]    #cria o filtro de busca
+    search_fields = ['course_title']    #define os fields a serem buscados no filtro
 
 class LessonViewSet(viewsets.ModelViewSet):
     queryset = Lesson.objects.all()

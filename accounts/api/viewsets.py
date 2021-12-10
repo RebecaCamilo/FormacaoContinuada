@@ -3,18 +3,16 @@ from ..models import User
 from .serializers import UserSerializer
 from rest_framework import generics
 
+########################## VIEWSET ##########################
 
 class RegisterViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    #print(queryset)
-
-
-
 
 
 
 ########################## GENERICS ##########################
+#################### NÃO ESTÁ SENDO USADA ####################
 
 #List and create
 class RegisterListCreateGenerics(generics.ListCreateAPIView):

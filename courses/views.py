@@ -1,3 +1,3 @@
 from django.shortcuts import render
 
-# Create your views here.
+# As views estão na pasta api, em viewsets.py

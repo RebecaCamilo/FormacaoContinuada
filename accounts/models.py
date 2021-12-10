@@ -5,7 +5,7 @@ from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseU
 
 class CustomAccountManager(BaseUserManager):
 
-    #cria um super user
+    # metodo que cria um super user
     def create_superuser(self, email, name, cpf, password, **other_fields):
 
         other_fields.setdefault('is_staff', True)
@@ -21,7 +21,7 @@ class CustomAccountManager(BaseUserManager):
 
         return self.create_user(email, name, cpf, password, **other_fields)
 
-    #cria um usuario comum (nao super)
+    # metodo que cria um usuario comum (nao super)
     def create_user(self, email, name, cpf, password, **other_fields):
         if not email:
             raise ValueError(('You must have an email address'))
@@ -30,8 +30,6 @@ class CustomAccountManager(BaseUserManager):
         if not cpf:
             raise ValueError(('You must have an cpf'))
 
-        #email = self.normalize_email(email)
-        #user = self.model(email=email, name=name, cpf=cpf, **other_fields)
         user = self.model(
             email=self.normalize_email(email), 
             name=name, 
@@ -49,7 +47,6 @@ class User(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(('email address'), unique=True)
     cpf = models.CharField(max_length=11, unique=True, verbose_name="CPF") 
     password2 = models.CharField(max_length=150, verbose_name="Confirme a senha")
-    #telefone = models.CharField(max_length=14) #(00)00000-0000
     start_date = models.DateTimeField(default=timezone.now)
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
@@ -66,32 +63,3 @@ class User(AbstractBaseUser, PermissionsMixin):
     def __str__(self):
         return self.name
 
-
-
-
-
-'''
-from django.db import models
-from django.contrib.auth.models import AbstractUser, PermissionsMixin
-
-class User(AbstractUser, PermissionsMixin):
-    username = models.CharField(max_length=30,  blank=True, null=True)
-    email = models.EmailField(unique=True)
-    cpf = models.CharField(max_length=30, unique=True)
-    course = models.CharField(max_length=255)
-    telefone = models.CharField(max_length=14) #(00)00000-0000
-
-    #It is a string describing the name of the field on the User model that is used as the unique identifier. The field must be unique (i.e., have unique=True set in its definition).
-    USERNAME_FIELD = 'email'
-    #It is a list of the field names that will be prompted when creating a user via the createsuperuser command.
-    REQUIRED_FIELDS = ['name', 'cpf', 'course',  'telefone']
-'''
-
-
-'''
-class UserProfile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE) #on_delete=models.CASCADE, se o User for deletado, seu respectivo UserProfile tbm será
-    cpf = models.CharField(max_length=30)
-    course = models.CharField(max_length=255)
-    telefone = models.CharField(max_length=14) #(00)00000-0000
-'''

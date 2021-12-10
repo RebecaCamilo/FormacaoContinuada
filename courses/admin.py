@@ -2,7 +2,7 @@ from django.contrib import admin
 from .models import Course, Lesson, Material
 
 
-# admin.site.register(Course)
+# altera como o curso irá ser mostrado no django admin
 @admin.register(Course)
 class CourseAdmin(admin.ModelAdmin):
     list_display = ('course_title', 'ministrante', 'get_create_at', 'status')
@@ -10,12 +10,13 @@ class CourseAdmin(admin.ModelAdmin):
     list_filter = ('course_title',)
     date_hierarchy = 'create_at'
 
+    #define formato DD/MM/YYYY para o field create_at
     def get_create_at(self, obj):
         if obj.create_at:
             return obj.create_at.strftime('%d/%m/%Y')
 
 
-# admin.site.register(Lesson)
+# altera como o lesson irá ser mostrado no django admin
 @admin.register(Lesson)
 class LessonAdmin(admin.ModelAdmin):
     list_display = ('lesson_title', 'course', 'synopsis', 'get_create_at')
@@ -28,7 +29,7 @@ class LessonAdmin(admin.ModelAdmin):
             return obj.create_at.strftime('%d/%m/%Y')
 
 
-# admin.site.register(Material)
+# altera como o material irá ser mostrado no django admin
 @admin.register(Material)
 class MaterialAdmin(admin.ModelAdmin):
     list_display = ('material_title', 'course', 'file', 'get_upload_at')

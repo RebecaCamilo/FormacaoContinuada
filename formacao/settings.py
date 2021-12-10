@@ -137,8 +137,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 
-
-
 #Django allows you to override the default user model by providing a value for the AUTH_USER_MODEL setting that references a custom model:
 #AUTH_USER_MODEL = 'myapp.MyUser'
 AUTH_USER_MODEL = 'accounts.User'
@@ -158,8 +156,5 @@ REST_FRAMEWORK = {
 #IsAuthenticated
 #IsAdminUser
 #IsAuthenticatedOrReadOnly
-#senha: senha1teste
-
-
 
 
